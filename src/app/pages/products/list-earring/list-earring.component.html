@@ -1,0 +1,47 @@
+<div class="list-container">
+<h3><p class="text-center">Каталог сережек</p></h3>
+ 
+<div>      
+  <table class="table table-striped table-list">
+    <thead>
+      <tr>
+        <th>Номер</th>
+        <th>Название модели</th>
+        <th>Стоимость</th>
+        <th>Дата начала продаж</th>
+        <th>Вес цепочки</th>                
+        <th>Материалы цепочки</th>
+        <th>Страна производства</th>        
+        <th>Доступен в продаже</th>
+        <th>Редактировать</th>        
+        <th>Удалить</th>        
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let entity of entities">
+        <tr id="Check_{{ entity.id }}" (click)="toEditClick(entity.id)">         
+          <td>{{ entity.id }}</td>
+          <td>{{ entity.name }}</td>
+          <td>{{ entity.price }}</td>
+          <td>{{ entity.data_product }}</td>
+          <td>{{ entity.weight_earring }}</td>          
+          <td>{{ entity.material_earring }}</td>          
+          <td>{{ entity.country }}</td>                        
+          <td>{{ entity.in_stock ? "Да" : "Нет" }}</td>                        
+          <td>
+            <button (click)="toEditClick(entity.id)" class="btn btn-primary">
+              Редактировать
+            </button>            
+            <!--<a [routerLink]="['../add-ring', entity.id]" class="btn btn-secondary">Edit</a>&nbsp;-->
+          </td>
+          <td>
+            <button (click)="onDelete(entity.id)" class="btn btn-danger">
+              Удалить
+            </button>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+  </div>
+</div>

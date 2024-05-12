@@ -1,0 +1,12 @@
+footer {
+  margin-top: 40px;
+  text-align: center;
+  background-color: beige;
+  
+}
+.beige-light{
+  background-color: beige;
+  font-family: cursive;
+  font-size: small;
+  font-style:inherit
+}

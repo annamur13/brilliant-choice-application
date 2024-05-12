@@ -1,0 +1,59 @@
+<div class="add-container">
+<h3><p class="text-center">Серьги</p></h3>
+<form [formGroup]="addForm" novalidate (ngSubmit)="submit()">
+  <div>    
+    <label for="idInput" class="form-label">Код товара</label>
+    <input id="idInput" class="form-control" type="text" name="id" formControlName="id" readonly="true">
+  </div>
+  <div>    
+    <label for="nameInput" class="form-label">Название товара</label>
+    <input id="nameInput" name="name" formControlName="name" class="form-control" type="text"> 
+    @if(addForm.controls["name"].invalid && addForm.controls["name"].touched){
+      <div class="alert alert-danger" role="alert">Заполните название, минимум 4 символа</div>
+    }
+  </div>
+  
+  <div>    
+    <label for="priceInput" class="form-label">Стоимость товара</label>
+    <input id="priceInput" name="price" formControlName="price" class="form-control" type="text"> 
+    @if(addForm.controls["price"].invalid && addForm.controls["price"].touched){
+      <div class="alert alert-danger" role="alert">Заполните стоимость до 10000</div>}
+  </div>
+  
+  <div>    
+    <label for="dataInput" class="form-label">Дата начала продаж</label>
+    <input type="date" formControlName="data_product" id="dataInput" 
+        name="data_product" class="form-control" placeholder="dd-MM-yyyy">
+    @if(addForm.controls["data_product"].invalid && addForm.controls["data_product"].touched){
+      <div class="alert alert-danger" role="alert">Заполните дату</div>}
+  </div>
+
+  <div>    
+    <label for="sizeInput" class="form-label">Вес сережек</label>
+    <input id="sizeInput" name="weight_earring" formControlName="weight_earring" class="form-control" type="text"> 
+    @if(addForm.controls["weight_earring"].invalid && addForm.controls["weight_earring"].touched){
+      <div class="alert alert-danger" role="alert">Укажите вес сережек. От 1 до 500</div>}
+  </div>
+  <div>    
+    <label for="countryInput" class="form-label">Страна производства</label>
+    <select id="countryInput"  class="select-css form-select" aria-label="Страна производства" formControlName="country" name="country">      
+      <option *ngFor="let name of enumKeys" [value]="name"> {{[name]}} </option>
+    </select>    
+  </div>
+
+  <div>    
+    <label for="material_earringInput" class="form-label">Материалы</label>
+    <select id="material_earringInput" multiple  class="select-css form-select" formControlName="material_earring" name="material_earring">      
+      <option *ngFor="let name of materials" [value]="name"> {{[name]}} </option>
+    </select>    
+  </div>
+  <div class="form-control-check">    
+    <label for="in_stockInput" class="form-label">Доступен в продаже</label>
+    <input id="in_stockInput" type="checkbox" class="form-control" formControlName="in_stock" name="in_stock">
+  </div>
+
+  <div><input name="is_new" formControlName="is_new" readonly="true" type="hidden"></div>
+    <button class="btn btn-primary button-transparent shadow" [disabled]="addForm.invalid">Сохранить</button>
+    <!--<button class="btn btn-icon  btn-default" [disabled]="addForm.invalid">Сохранить</button>-->
+  </form>  
+</div>
