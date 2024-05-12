@@ -7,9 +7,9 @@
     border: 1px solid rgb(172, 185, 198);
     */
     max-width: 500px;
-    min-height: 300px;
-    margin: 10px auto;    
+    min-height: 200px;
+    margin: 1px auto;    
     border: 1px solid gold;
-    padding: 10px;
+    padding: 15px;
     border-radius: 20px;
 }
